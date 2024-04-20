@@ -1,0 +1,177 @@
+﻿body {
+    background-color:silver;
+}
+/*.box {
+    display:flex;
+flex-wrap:wrap;
+height:70%;
+width:60%;
+border:2px solid black;
+overflow:auto;
+}*/
+.mystyle {
+    background-color: blue;
+}
+.styl {
+    background-color: darkorange;
+}
+/*.item {
+    display: inline-block;
+    font-family: 'Times New Roman', Times, serif;
+    border: 2px dotted RGB(102, 102, 102);
+    width:32.3%;
+    text-align:center;
+    flex: 0 1 0;
+}*/
+    
+.btn {
+width:10%;
+height: 15%;
+margin: 6%;
+background-color:blue;
+border:3px solid black;
+
+}
+.b {
+    background-color: red;
+}
+.dbtn {
+position:absolute;
+top:-1px;
+left:-1px;
+width:1px;
+
+
+}
+.box {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    height: 70%; /* Set fixed height for the container */
+    width: 60%;
+    border: 2px solid black;
+    overflow: auto; /* Add scrollbar when items exceed container height */
+    background-color:black;
+    padding:10px;
+    border-radius:20px;
+}
+
+.item {
+    flex: 0 1 auto; /* Let items grow and shrink horizontally */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 2px dotted RGB(102, 102, 102);
+    text-align: center;
+    box-sizing: border-box; /* Include border in width calculation */
+    width: calc(20% - 4px); /* Set width to maintain 3 items per row */
+    margin: 0px; /* Add margin between items */
+    height: 50px; /* Set fixed height for the items */
+font-weight:80;
+color:white;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom-right-radius:30px;
+border-bottom-right-radius:30px;
+font-size:small;
+}
+    .item:hover {
+        font-weight: 200;
+        padding:10px;
+        font-size:large;
+    }
+.outer{
+    position:absolute;
+    top:30vh;
+    left: 65vw;
+    background-color:gray;
+    border-radius:30px;
+ box-shadow:initial; 
+ height:60vh;
+ width:50vh;
+flex-basis:30vh;
+flex-grow:0;
+flex-shrink:0;
+}
+.inner{
+    background-color:darkorange;
+    height:80%;
+    width:80%;
+    margin:auto;
+    border-radius:inherit;
+}
+.p {
+text-align:center;
+justify-content:center;
+height:10%;
+width:80%;
+margin:30px;
+
+font-size:xx-large;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-weight:50;
+}
+
+/* width */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: blue;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: blue #f1f1f1; /* thumb and track colors */
+}
+
+    *::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: red;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: blue;
+    }
+
+        *::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+.booked {
+    background-color: blueviolet;
+
+}
+
+.select {
+    width: 100%;
+    height: 35px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+    .select:focus {
+        outline: none;
+    }
