@@ -20,7 +20,9 @@ namespace WebApplication4
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("insert into login(username,password) values ('"+username.Text+"','"+Passowed.Text+"')",_conn);
+            SqlCommand cmd = new SqlCommand("Exec signup @username, @pass",_conn);
+            cmd.Parameters.AddWithValue("@username", username.Text);
+            cmd.Parameters.AddWithValue("@pass", Passowed.Text);
             cmd.ExecuteNonQuery();
             _conn.Close();
             username.Text = "";

@@ -1,5 +1,9 @@
 ﻿body {
-    background-color:silver;
+    background-color: silver;
+}
+
+.hidd {
+    display: none;
 }
 /*.box {
     display:flex;

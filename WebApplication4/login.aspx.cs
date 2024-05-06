@@ -21,7 +21,7 @@ namespace WebApplication4
         protected void Button1_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(cs);
-            string query = "select * from login where username=@user1 and password=@pass";
+            string query = "select * from UserAccounts where username=@user1 and password=@pass";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@user1",TextBox1.Text);
             cmd.Parameters.AddWithValue("@pass", TextBox2.Text);

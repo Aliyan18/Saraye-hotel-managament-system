@@ -20,7 +20,7 @@ namespace WebApplication4
                 myDiv.InnerHtml = "<a href=\"login.aspx\" class=\"login\">Login</a>";
             }
             else {
-                myDiv.InnerHtml="<a href =\"reservation.aspx\">P</a>";
+                myDiv.InnerHtml="<a href =\"reservation.aspx\">BOOKING</a>";
 
             }
         }
