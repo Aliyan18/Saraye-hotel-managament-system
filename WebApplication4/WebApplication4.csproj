@@ -126,7 +126,7 @@
     <Content Include="Global.asax" />
     <Content Include="JavaScript.js" />
     <Content Include="JavaScript1.js" />
-    <Content Include="JavaScript2.js" />
+    <Content Include="inventory.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -165,8 +165,9 @@
     <Content Include="home.aspx" />
     <Content Include="food.css" />
     <Content Include="food.aspx" />
-    <Content Include="StyleSheet1.css" />
-    <Content Include="WebForm6.aspx" />
+    <Content Include="inventory.css" />
+    <Content Include="Inventory.aspx" />
+    <Content Include="staff.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -195,6 +196,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="staff.css" />
     <Content Include="user.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -292,12 +294,19 @@
     <Compile Include="food.aspx.designer.cs">
       <DependentUpon>food.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm6.aspx.cs">
-      <DependentUpon>WebForm6.aspx</DependentUpon>
+    <Compile Include="Inventory.aspx.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm6.aspx.designer.cs">
-      <DependentUpon>WebForm6.aspx</DependentUpon>
+    <Compile Include="Inventory.aspx.designer.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="staff.aspx.cs">
+      <DependentUpon>staff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="staff.aspx.designer.cs">
+      <DependentUpon>staff.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

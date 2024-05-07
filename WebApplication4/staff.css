@@ -1,0 +1,33 @@
+﻿body {
+background-color:black;
+}
+h1 {
+    color:orange;
+    text-decoration:dotted;
+    text-align:center;
+    margin-bottom:40px;
+}
+.container {
+padding:20px;
+font-size:7px;
+font-size:40px;
+display:inline-block;
+width:20vw;
+height:15vh;
+margin:auto;
+background-color:orange;
+border-radius:20px;
+}
+.bt {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ensures button covers entire parent width */
+    height: 100%; /* Ensures button covers entire parent height */
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    font-size: 16px;
+}

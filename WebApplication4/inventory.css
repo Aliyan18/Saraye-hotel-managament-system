@@ -1,0 +1,53 @@
+﻿body {
+}
+
+table {
+    margin: auto;
+    padding: 7px;
+    border:orange;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid orange;
+    margin: 5px;
+    
+}
+
+.inputForm {
+    position: absolute;
+    top: -50vh;
+    right:50vw;
+    transition: .5s ease-in-out;
+    background-color:black;
+    color:white;
+    border-radius:7px;
+    z-index:1;
+    padding:10px;
+
+}
+
+.moveee {
+    transform: translate(0vw,80vh); /* Corrected transform value */
+}
+.cover {
+background-color:black;
+opacity:0.8;
+width:100vw;
+height:100vh;
+z-index:0;
+position:absolute;
+top:0px;
+right:0px;
+left:0px;
+bottom:0px;
+
+}
+.icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 5vw;
+    height: 3vw;
+    display: inline-block;
+}
