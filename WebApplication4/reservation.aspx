@@ -15,9 +15,12 @@
           <div class="inner">
 <asp:TextBox runat="server" ID="t1" placeholder="roomnum" AutoPostBack="true" CssClass="hidd select"  ></asp:TextBox>
               <asp:TextBox runat="server" ID="t2" placeholder="num" AutoPostBack="true" CssClass="hidd"></asp:TextBox>
-             <asp:TextBox runat="server" ID="TextBox1" placeholder="Enter Date (YYYY-MM-DD)" AutoPostBack="true" CssClass="select"></asp:TextBox>
-              <asp:TextBox runat="server" ID="TextBox2" placeholder="Enter Date (YYYY-MM-DD)" AutoPostBack="true" CssClass="select"></asp:TextBox>
+            
+              
+              <asp:TextBox runat="server" ID="TextBox1" placeholder="Enter Date (YYYY-MM-DD)" AutoPostBack="true" CssClass="select"></asp:TextBox>
 
+              <asp:TextBox runat="server" ID="TextBox2" placeholder="Enter Date (YYYY-MM-DD)" AutoPostBack="true" CssClass="select"></asp:TextBox>
+          
 
 <asp:Button runat="server" ID="btn1" Text="Click Me" OnClick="btn1_Clicked" />
 

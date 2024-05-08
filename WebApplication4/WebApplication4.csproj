@@ -168,6 +168,7 @@
     <Content Include="inventory.css" />
     <Content Include="Inventory.aspx" />
     <Content Include="staff.aspx" />
+    <Content Include="cancelBooking.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -307,6 +308,13 @@
     </Compile>
     <Compile Include="staff.aspx.designer.cs">
       <DependentUpon>staff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cancelBooking.aspx.cs">
+      <DependentUpon>cancelBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cancelBooking.aspx.designer.cs">
+      <DependentUpon>cancelBooking.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

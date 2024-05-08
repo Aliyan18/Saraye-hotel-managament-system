@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
+using System.Globalization;
 
 namespace WebApplication4
 {
@@ -20,6 +21,9 @@ namespace WebApplication4
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            DateTime currentDate = DateTime.Today;
+            Response.Write("<div>Current Date: " + currentDate+"</div>");
+
             dbConnection.Open();
             var queryString = "exec reg";
             // var dbConnection = new SqlConnection(dbConnectionstring);
@@ -88,29 +92,58 @@ namespace WebApplication4
               
             if (t1.Text != "")
                     {
-                
-                SqlCommand cmd2 = new SqlCommand("SELECT MAX(reservation_id) FROM reservation", dbConnection);
-                int maxReservationId = 0;
-                if (cmd2.ExecuteScalar() != DBNull.Value)
-                    maxReservationId = (int)cmd2.ExecuteScalar();
-                maxReservationId++;
-                SqlCommand cmd1 = new SqlCommand("INSERT INTO reservation (reservation_id, username, checkin_date, checkout_date, room_id)  VALUES (@ResId, @Username, @Checkin, @Checkout, @RoomNum)", dbConnection);
-                cmd1.Parameters.AddWithValue("@ResId", maxReservationId); // Incrementing the max reservation ID by 1
-                cmd1.Parameters.AddWithValue("@Username", Session[0].ToString());
-                cmd1.Parameters.AddWithValue("@Checkin", dateValue);
-                cmd1.Parameters.AddWithValue("@Checkout", dateValue1);
-                cmd1.Parameters.AddWithValue("@RoomNum", t1.Text);
-                cmd1.ExecuteNonQuery();
-                SqlCommand cmd = new SqlCommand("UPDATE room SET room_status='no' WHERE room_number=@RoomNumber;", dbConnection);
-                cmd.Parameters.AddWithValue("@RoomNumber", t1.Text);
-                cmd.ExecuteNonQuery();
+                if (TextBox1.Text == "" || TextBox2.Text == "")
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert('must enter dates for check in and check out');</script>");
 
-               
+                }
+                else
+                {
+                    DateTime currentDate = DateTime.Today;
+                    DateTime dateTime1;
+                    DateTime dateTime2;
+                  
+                    if (DateTime.TryParseExact(dateValue, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime1) && DateTime.TryParseExact(dateValue1, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime2))
+                    {
 
-                t1.Text = ""; // Clearing the text box after execution
+                        if (dateTime1 >= currentDate && dateTime2 >= currentDate)
+                            if (dateTime1 >= dateTime2)
+                            {
+                                Response.Write("<div>Current Date: " + dateTime1 + "</div>");
+                                Response.Write("<div>Current Date: " + dateTime2 + "</div>");
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('must enter VALID dates for check in and check out');", true);
+                            }
+                            else
+                            {
+
+
+                                SqlCommand cmd2 = new SqlCommand("SELECT MAX(reservation_id) FROM reservation", dbConnection);
+                                int maxReservationId = 0;
+                                if (cmd2.ExecuteScalar() != DBNull.Value)
+                                    maxReservationId = (int)cmd2.ExecuteScalar();
+                                maxReservationId++;
+                                SqlCommand cmd1 = new SqlCommand("INSERT INTO reservation (reservation_id, username, checkin_date, checkout_date, room_id)  VALUES (@ResId, @Username, @Checkin, @Checkout, @RoomNum)", dbConnection);
+                                cmd1.Parameters.AddWithValue("@ResId", maxReservationId); // Incrementing the max reservation ID by 1
+                                cmd1.Parameters.AddWithValue("@Username", Session[0].ToString());
+                                cmd1.Parameters.AddWithValue("@Checkin", dateValue);
+                                cmd1.Parameters.AddWithValue("@Checkout", dateValue1);
+                                cmd1.Parameters.AddWithValue("@RoomNum", t1.Text);
+                                cmd1.ExecuteNonQuery();
+                                SqlCommand cmd = new SqlCommand("UPDATE room SET room_status='no' WHERE room_number=@RoomNumber;", dbConnection);
+                                cmd.Parameters.AddWithValue("@RoomNumber", t1.Text);
+                                cmd.ExecuteNonQuery();
+
+
+                                Response.Redirect("reservation.aspx");
+
+                                t1.Text = "";
+                            } // Clearing the text box after execution
+                    }
+                }
+                t1.Text = "";
 
             }
-           if (t2.Text != "") {
+            if (t2.Text != "") {
                 SqlCommand cmd1 = new SqlCommand("delete from reservation where room_id=@RoomNumber", dbConnection);
                 cmd1.Parameters.AddWithValue("@RoomNumber", t2.Text);
 
@@ -122,12 +155,14 @@ namespace WebApplication4
                         // dbConnection.Close();
 
                         t2.Text = "";
-                    }
+                Response.Redirect("reservation.aspx");
+
+            }
             //await Task.Delay(3000);
             dbConnection.Close();
+            for (int i = 0; i < 50; i++) ;
 
-            Response.Redirect("reservation.aspx");
-                }
+        }
         /* protected void t2_TextChanged(object sender, EventArgs e)
 {
 SqlCommand cmd = new SqlCommand("update res set avaibility='yes' where roomnum=('" + t2.Text + "' )", dbConnection);

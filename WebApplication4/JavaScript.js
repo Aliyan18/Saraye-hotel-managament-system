@@ -11,12 +11,18 @@ function cancelroom(item) {
 
             item.appendChild(button);
             button.addEventListener("mousedown", () => {
-                let t2 = document.querySelector("#t2");
+            
+                 let t2 = document.querySelector("#t2");
                 let num = '';
                 for (let j = 0; txt1[j] >= 0 && txt1[j] <= 9; j++)
                     num += txt1[j];
-                console.log(txt1);
+                console.log(num);
                 t2.value = num;
+                //t2.value = "";
+              //  '<%Session["cancelRoom"] = "' + num + '"; %>';
+              //  window.location.href = "cancelBooking.aspx";               
+
+
             })
         })
 }
@@ -112,3 +118,4 @@ function chooseRoom(el) {
         });
     }
 }
+

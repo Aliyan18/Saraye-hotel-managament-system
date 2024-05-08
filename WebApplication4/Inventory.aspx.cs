@@ -5,7 +5,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
+using System.Web.Optimization;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -26,6 +28,7 @@ namespace WebApplication4
             var commanbuilder = new SqlCommandBuilder(dataAdapter);
             var ds = new DataSet();
             dataAdapter.Fill(ds);
+            Response.Write("<div>" + (string)Session["userType"]+"</div>");
 
             Response.Write("<Table>");
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++) {
@@ -42,9 +45,19 @@ namespace WebApplication4
                     Response.Write("<td color=\"red\" > OUT OF STOCK  </td>");
 
                 Response.Write("</tr>");
+                if ((string)Session["userType"] == "staff")
+                {
+                    string enableTriggerQuery = "alter table inventory ENABLE TRIGGER inventory_access";
+                    SqlCommand command = new SqlCommand(enableTriggerQuery, dbConnection);
 
+                    command.ExecuteNonQuery();
+                }
+                else {
+                    string enableTriggerQuery = "alter table inventory disable TRIGGER inventory_access";
+                    SqlCommand command = new SqlCommand(enableTriggerQuery, dbConnection);
 
-
+                    command.ExecuteNonQuery();
+                }
             }
 
             Response.Write("</Table>");
@@ -55,43 +68,65 @@ namespace WebApplication4
 
         protected void btn_click(object sender, EventArgs e)
         {
-            if(textbox1.Text!=""&&textbox2.Text!="")
-            if ((string)Session["userType"] == "staff")
+            if (textbox1.Text != "" && textbox2.Text != "")
             {
-                string alertScript = "alert('ONLY ADMINS CAN PLACE ORDERS');";
+                if ((string)Session["userType"] == "staff") {
 
-                ClientScript.RegisterStartupScript(this.GetType(), "NotEnoughItemsAlert", alertScript, true);
-            }
-            else
-            {
-                dbConnection.Open();
-                string iid = textbox2.Text;
-                // Step 1: Retrieve the current quantity
-                string selectQuery = "SELECT Quantity FROM Inventory WHERE Item_Id = @ItemId";
-                SqlCommand selectCommand = new SqlCommand(selectQuery, dbConnection);
-                selectCommand.Parameters.AddWithValue("@ItemId", iid);
-                int currentQuantity = (int)selectCommand.ExecuteScalar();
-                int newQuantity = 0;
-                if (!string.IsNullOrEmpty(textbox1.Text))
-                {
-                    int.TryParse(textbox1.Text, out newQuantity);
-                }
-                // Step 2: Update the quantity
-                int updatedQuantity = currentQuantity + newQuantity;
-                if (updatedQuantity >= 0)
-                {
-                    // Step 3: Update the database
+                     dbConnection.Open();
+
+                     string iid = textbox2.Text;
+                    string alertScript = "only admins can perform the action";
+                    string selectQuery = "SELECT Quantity FROM Inventory WHERE Item_Id = @ItemId";
+                    SqlCommand selectCommand = new SqlCommand(selectQuery, dbConnection);
+                    selectCommand.Parameters.AddWithValue("@ItemId", iid);
+                    //   string alertScript = (string)selectCommand.ExecuteScalar();
                     string updateQuery = "UPDATE Inventory SET Quantity = @UpdatedQuantity WHERE Item_Id = @ItemId";
                     SqlCommand updateCommand = new SqlCommand(updateQuery, dbConnection);
-                    updateCommand.Parameters.AddWithValue("@UpdatedQuantity", updatedQuantity);
+                    updateCommand.Parameters.AddWithValue("@UpdatedQuantity", 0);
                     updateCommand.Parameters.AddWithValue("@ItemId", iid);
-                    updateCommand.ExecuteNonQuery();
+                    string Script = (string)updateCommand.ExecuteScalar();
+                    // string Script = "alert('ONLY ADMINS CAN PLACE ORDERS');";
+
+                    // ClientScript.RegisterStartupScript(this.GetType(), "ItemsAlert", alertScript, true);
+                    // alertScript = "alert(+'"script"'+);";
+                     alertScript = "alert('" + Script + "');";
+                    Response.Write("<div>" + Script + "</div>");
+
+                    ClientScript.RegisterStartupScript(this.GetType(), "ItemsAlert", alertScript, true);
+
                 }
-                textbox2.Text = "";
-                textbox1.Text = "";
+                else
+                {
+                    dbConnection.Open();
+                    string iid = textbox2.Text;
+                    // Step 1: Retrieve the current quantity
+                    string selectQuery = "SELECT Quantity FROM Inventory WHERE Item_Id = @ItemId";
+                    SqlCommand selectCommand = new SqlCommand(selectQuery, dbConnection);
+                    selectCommand.Parameters.AddWithValue("@ItemId", iid);
+                    int currentQuantity = (int)selectCommand.ExecuteScalar();
+                    int newQuantity = 0;
+                    if (!string.IsNullOrEmpty(textbox1.Text))
+                    {
+                        int.TryParse(textbox1.Text, out newQuantity);
+                    }
+                    // Step 2: Update the quantity
+                    int updatedQuantity = currentQuantity + newQuantity;
+                    if (updatedQuantity >= 0)
+                    {
+                        // Step 3: Update the database
+                        string updateQuery = "UPDATE Inventory SET Quantity = @UpdatedQuantity WHERE Item_Id = @ItemId";
+                        SqlCommand updateCommand = new SqlCommand(updateQuery, dbConnection);
+                        updateCommand.Parameters.AddWithValue("@UpdatedQuantity", updatedQuantity);
+                        updateCommand.Parameters.AddWithValue("@ItemId", iid);
+                        updateCommand.ExecuteNonQuery();
+                    }
+                    textbox2.Text = "";
+                    textbox1.Text = "";
+                    Response.Redirect("Inventory.aspx");
+
+                }
             }
-            for (int i = 0; i < 100; i++) ;
-            Response.Redirect("Inventory.aspx");
+
 
         }
         protected void btn_click1(object sender, EventArgs e)
@@ -136,7 +171,9 @@ namespace WebApplication4
                     string alertScript = "alert('Not enough items');";
 
                     ClientScript.RegisterStartupScript(this.GetType(), "NotEnoughItemsAlert", alertScript, true);
-                    Response.Redirect("Inventory.aspx");
+                    for (int i = 0; i < 70; i++) ;
+
+                   // Response.Redirect("Inventory.aspx");
 
                 }
             }

@@ -25,10 +25,10 @@
         takeform.classList.add('moveee')
 
     });
-    let modeBtn = document.querySelector('.icon');
-    modeBtn.addEventListener('click', () => {
-        let body = document.querySelector('body');
-        body.setAttribute('style', 'background-color: black; color: white;');
-    });
+    //let modeBtn = document.querySelector('.icon');
+    //modeBtn.addEventListener('click', () => {
+    //    let body = document.querySelector('body');
+    //    body.setAttribute('style', 'background-color: black; color: white;');
+    //});
 
 });

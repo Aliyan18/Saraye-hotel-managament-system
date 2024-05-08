@@ -50,7 +50,7 @@
        </style>
 </head>
 <body>
-     </div>  
+     <div>  
            <p class="spinner" id="spinner"><i class="fa fa-spinner fa-5x"></i></p>
     </div>
     <form id="form1" runat="server">
