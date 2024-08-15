@@ -68,35 +68,72 @@ namespace WebApplication4
 
         protected void btn_click(object sender, EventArgs e)
         {
-            if (textbox1.Text != "" && textbox2.Text != "")
-            {
-                if ((string)Session["userType"] == "staff") {
 
-                     dbConnection.Open();
+            //if (textbox1.Text != "" && textbox2.Text != "")
+            //{
+            //    if ((string)Session["userType"] == "staff") {
 
-                     string iid = textbox2.Text;
-                    string alertScript = "only admins can perform the action";
-                    string selectQuery = "SELECT Quantity FROM Inventory WHERE Item_Id = @ItemId";
-                    SqlCommand selectCommand = new SqlCommand(selectQuery, dbConnection);
-                    selectCommand.Parameters.AddWithValue("@ItemId", iid);
-                    //   string alertScript = (string)selectCommand.ExecuteScalar();
-                    string updateQuery = "UPDATE Inventory SET Quantity = @UpdatedQuantity WHERE Item_Id = @ItemId";
-                    SqlCommand updateCommand = new SqlCommand(updateQuery, dbConnection);
-                    updateCommand.Parameters.AddWithValue("@UpdatedQuantity", 0);
-                    updateCommand.Parameters.AddWithValue("@ItemId", iid);
-                    string Script = (string)updateCommand.ExecuteScalar();
-                    // string Script = "alert('ONLY ADMINS CAN PLACE ORDERS');";
+            //        string alertScript = "only admins can perform the action";
 
-                    // ClientScript.RegisterStartupScript(this.GetType(), "ItemsAlert", alertScript, true);
-                    // alertScript = "alert(+'"script"'+);";
-                     alertScript = "alert('" + Script + "');";
-                    Response.Write("<div>" + Script + "</div>");
 
-                    ClientScript.RegisterStartupScript(this.GetType(), "ItemsAlert", alertScript, true);
+            //      //  ClientScript.RegisterStartupScript(this.GetType(), "ItemsAlert", alertScript, true);
 
-                }
-                else
-                {
+            //        dbConnection.Open();
+
+            //         string iid = textbox2.Text;
+            //      //  string alertScript = "only admins can perform the action";
+            //        string selectQuery = "SELECT Quantity FROM Inventory WHERE Item_Id = @ItemId";
+            //        SqlCommand selectCommand = new SqlCommand(selectQuery, dbConnection);
+            //        selectCommand.Parameters.AddWithValue("@ItemId", iid);
+            //        //   string alertScript = (string)selectCommand.ExecuteScalar();
+            //        string updateQuery = "UPDATE Inventory SET Quantity = @UpdatedQuantity WHERE Item_Id = @ItemId";
+                    
+            //        //starting
+
+            //        try
+            //        {
+            //            SqlCommand updateCommand = new SqlCommand(updateQuery, dbConnection);
+            //            updateCommand.Parameters.AddWithValue("@UpdatedQuantity", 2);
+            //            updateCommand.Parameters.AddWithValue("@ItemId", iid);
+                      
+            //                updateCommand.ExecuteNonQuery();
+            //                // If the update is successful, no exception will be thrown
+            //                // Proceed with any other necessary actions
+                        
+            //        }
+            //        catch (SqlException ex)
+            //        {
+            //            // Display the message from the exception to the user
+            //            string errorMessage = ex.Message;
+            //            // You can display the errorMessage in a label, modal, or any other UI element
+            //            // For example:
+            //            // errorLabel.Text = errorMessage;
+
+            //            alertScript = "alert('" + errorMessage+ "');";
+            //            //Response.Write("<div>" + errorMessage + "</div>");
+
+            //            //string cleanMessage = MessageToDisplay.Replace("'", "\'");
+            //            Page page = HttpContext.Current.CurrentHandler as Page;
+            //            string script = string.Format("alert('{0}');", errorMessage);
+            //            // script += " window.location.href='" + lpRedirectPage + "';"
+            //            if (page != null && !page.ClientScript.IsClientScriptBlockRegistered("alert"))
+            //            {
+            //                page.ClientScript.RegisterClientScriptBlock(page.GetType(), "alert", script, true /* addScriptTags */);
+            //            }
+            //            //ClientScript.RegisterStartupScript(this.GetType(), "ItemsAlert", alertScript, true);
+            //        }
+
+            //        //ending
+            //     //--->   string Script = (string)updateCommand.ExecuteScalar();
+            //        // string Script = "alert('ONLY ADMINS CAN PLACE ORDERS');";
+
+            //        // ClientScript.RegisterStartupScript(this.GetType(), "ItemsAlert", alertScript, true);
+            //        // alertScript = "alert(+'"script"'+);";
+                     
+
+            //    }
+            //    else
+            //    {
                     dbConnection.Open();
                     string iid = textbox2.Text;
                     // Step 1: Retrieve the current quantity
@@ -122,10 +159,16 @@ namespace WebApplication4
                     }
                     textbox2.Text = "";
                     textbox1.Text = "";
-                    Response.Redirect("Inventory.aspx");
-
-                }
+            if ((string)Session["usertype"] == "staff")
+            {
+                Label1.Text ="Not authorized to performt his action";
             }
+            else
+            {
+                Response.Redirect("Inventory.aspx");
+            }
+                
+            
 
 
         }

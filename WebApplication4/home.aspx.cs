@@ -14,16 +14,18 @@ namespace WebApplication4
         {
             // Assuming you have a TextBox with ID "TextBox1"
             HtmlGenericControl myDiv = FindControl("myDiv") as HtmlGenericControl;
+            HtmlGenericControl dropDown = FindControl("dropdown") as HtmlGenericControl;
 
             if (Session["username"] == null)
             {
                 myDiv.InnerHtml = "<a href=\"login.aspx\" class=\"login\">Login</a>";
             }
             else {
-                myDiv.InnerHtml="<a href =\"reservation.aspx\">BOOKING</a>";
+                myDiv.InnerHtml = "  <div class=\"dropdown\"><button class=\"dropbtn\">BOOK</button>  <div class=\"dropdown-content\"> <a href=\"reservation.aspx\">Reservation</a>  <a href=\"events.aspx\">Event</a>  <a href=\"HtmlPage1.html\">FEEDBACK</a>\r\n  </div></div>";
 
+                myDiv.InnerHtml+= "<a href=\"login.aspx\" class=\"login\">Logout</a>";
             }
-        }
+        } 
        
     }
 }

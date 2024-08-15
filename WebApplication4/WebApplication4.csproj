@@ -124,9 +124,11 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="HtmlPage1.html" />
     <Content Include="JavaScript.js" />
     <Content Include="JavaScript1.js" />
     <Content Include="inventory.js" />
+    <Content Include="JavaScript2.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -169,6 +171,8 @@
     <Content Include="Inventory.aspx" />
     <Content Include="staff.aspx" />
     <Content Include="cancelBooking.aspx" />
+    <Content Include="events.aspx" />
+    <Content Include="resinfo.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -315,6 +319,20 @@
     </Compile>
     <Compile Include="cancelBooking.aspx.designer.cs">
       <DependentUpon>cancelBooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="events.aspx.cs">
+      <DependentUpon>events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="events.aspx.designer.cs">
+      <DependentUpon>events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="resinfo.aspx.cs">
+      <DependentUpon>resinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resinfo.aspx.designer.cs">
+      <DependentUpon>resinfo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

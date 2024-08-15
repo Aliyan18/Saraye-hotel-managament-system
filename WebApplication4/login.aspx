@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-        <link rel="stylesheet" href="login.css"/>
+        <link rel="stylesheet" href="/styleSheets/login.css"/>
 
 </head>
 <body>
@@ -42,6 +42,7 @@
                           <div class="link"style="margin-top:4vh"> Don't have an account</div>
                       
                         <div class="link"><a href="signup.aspx">Sign up Here</a></div>
+                        <div class="link"><a href="home.aspx">Continue without login</a></div>
 
                       <div class="liw">Log in with
                       </div>

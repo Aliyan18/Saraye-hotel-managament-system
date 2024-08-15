@@ -40,6 +40,7 @@ namespace WebApplication4
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 object value = ds.Tables[0].Rows[i][11];
+                object val = ds.Tables[0].Rows[i][5];
 
                 //  if (value != DBNull.Value && Session[0] != null&& ds.Tables[0].Rows[i][11].ToString() == Session[0].ToString())
                 if(value != DBNull.Value && Session[0] != null&& (string)ds.Tables[0].Rows[i][2] == "no" && (string)ds.Tables[0].Rows[i][11] == Session[0].ToString()) { 
@@ -56,8 +57,8 @@ namespace WebApplication4
                     Response.Write("<div runat=\"server\" runat=\"server\" id=\"myDiv\" class=\"item styl\" OnDblClick=\"chooseRoom(this);\">" + ds.Tables[0].Rows[i][0] + "<br>" + ds.Tables[0].Rows[i][1] + "<br>" + ds.Tables[0].Rows[i][2] + "</div>");
 
                 }
-                else
-                    Response.Write("<div class=\"item\" style=\"background-color:silver\" >" + ds.Tables[0].Rows[i][0] + "<br>not available till:"+"<br>" + ds.Tables[0].Rows[0][5] + " </div>");
+                else if(val!= DBNull.Value)
+                    Response.Write("<div class=\"item\" style=\"background-color:silver\" >" + ds.Tables[0].Rows[i][0] + "<br>not available till:"+"<br>" + ds.Tables[0].Rows[i][5] + " </div>");
 
             }
             Response.Write("</div>");

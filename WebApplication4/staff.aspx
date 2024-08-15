@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-                <link rel="stylesheet" href="staff.css"/>
+                <link rel="stylesheet" href="/styleSheets/staff.css"/>
 
 </head>
 <body>
@@ -20,7 +20,10 @@
      <asp:button runat="server" onclick="staff_clicked" Text="STAFF INFO" CssClass="bt"></asp:button>
      
  </div>
-         
+                 <div runat="server" id="div3" class="container res" >
+    <asp:button runat="server" onclick="res_clicked" Text="Reservation INFO" CssClass="bt"></asp:button>
+    
+</div>
     
 
 

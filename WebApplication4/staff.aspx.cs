@@ -22,7 +22,10 @@ namespace WebApplication4
         {
             Response.Redirect("staff.aspx");
         }
-
+        protected void res_clicked(object sender, EventArgs e)
+        {
+            Response.Redirect("resinfo.aspx");
+        }
 
     }
 }

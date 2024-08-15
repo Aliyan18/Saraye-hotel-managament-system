@@ -7,7 +7,7 @@
     <title>
         food
     </title>
-<link rel="stylesheet" href="food.css"/>
+<link rel="stylesheet" href="/styleSheets/food.css"/>
 
 </head>
 <body >

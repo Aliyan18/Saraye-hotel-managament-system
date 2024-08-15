@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>SARAYE</title>
-    <link rel="stylesheet" href="snp.css"/>
+    <link rel="stylesheet" href="/styleSheets/snp.css"/>
     <style>
         .btn a {
             color: #fff; 

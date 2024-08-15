@@ -5,7 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="inventory.css"/>
+    <link rel="stylesheet" href="/styleSheets/inventory.css"/>
+        <style>
+    .highlight {
+        color: red;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
  <div class="notcover"></div>
@@ -39,8 +45,9 @@
     <asp:TextBox ID="textbox4" runat="server"></asp:TextBox>
     <asp:button ID="Button1" text="submit" runat="server" OnClick="btn_click1" > </asp:button>
 </div>
-            <script src="inventory.js" ></script>
+               <br/> <asp:Label ID="Label1" runat="server"  CssClass="highlight" />
 
+            <script src="inventory.js" ></script><br/>
     </form>
 </body>
 </html>

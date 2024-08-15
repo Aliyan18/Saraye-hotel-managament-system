@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="WebApplication4.WebForm4" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="WebApplication4.WebForm4" %>
 
 <!DOCTYPE html>
 
@@ -23,6 +24,54 @@
         };
     </script>
     <style>
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+    border-radius:30px;
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+/*  position:absolute;
+  top: 10px;
+  right:300px;*/
+  border-radius:30px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  z-index:101;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+    
         #spinner   {  
            
             animation: spin 1s linear infinite;
@@ -47,36 +96,49 @@
 
     
 }
+        .item11 {
+        z-index:1;
+        }
        </style>
 </head>
 <body>
      <div>  
            <p class="spinner" id="spinner"><i class="fa fa-spinner fa-5x"></i></p>
     </div>
-    <form id="form1" runat="server">
+<%--    //<form id="form1" runat="server">--%>
        
-    <div class="main">
-        <div class="navbar">
+    <div runat="server" class="main">
+        <div runat ="server" class="navbar">
             <div class="icon">
                 <h2 class="logo">SARAYE</h2>
             </div>
         
-            <div class="menu">
-                <ul>
+            <div runat="server" class="menu">
+                <ul runat="server">
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#customers">Customers</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#rooms">Rooms</a></li>
-                
+                     <li >
+
+
+                    </li>
                 </ul>
                 
-            </div>
-            
+            </div></d>
+             
             <div runat="server" class="login" id="myDiv">
+                                                                
             </div>
+
         </div>
-        
+                                                                                    <div runat="server" class="dropdown" id="Div1">
+
+</div>
+<%--                                                <div runat="server" class="dropdown" id="dropdown">
+
+</div>--%>
         <div class="head-bottom flex">
             <h2>NICE AND COMFORTABLE PLACE TO STAY</h2>
             <p>Unlock the door to exceptional hospitality – where every moment is tailored to perfection</p>
@@ -100,7 +162,7 @@
                   at Saraye, where indulgence knows no bounds.</p>
             </div>
             <div class="info-right">
-            <img src="./3.jpeg" alt="Hotel">
+            <img src="/images/3.jpeg" alt="Hotel">
         </div>
     </section>
 
@@ -176,7 +238,7 @@
         
             <article class = "room">
                 <div class = "room-image">
-                    <img src = "img1.jpg" alt = "room image">
+                    <img src = "/images/img1.jpg" alt = "room image">
                 </div>
                 <div class = "room-text">
                     <h3>Luxury Rooms</h3>
@@ -187,7 +249,7 @@
           
             <article class = "room">
                 <div class = "room-image">
-                    <img src = "img2.jpg" alt = "room image">
+                    <img src = "/images/img2.jpg" alt = "room image">
                 </div>
                 <div class = "room-text">
                     <h3>Luxury Rooms</h3>
@@ -215,7 +277,7 @@
                     </div>
                     <h3>We Loved it</h3>
                     <p>Saraye's attention to detail and commitment to guest satisfaction set it apart. Can't wait to visit again!</p>
-                    <img src = "cus1.jpg" alt = "customer image">
+                    <img src = "/images/cus1.jpg" alt = "customer image">
                     <span>Sara, Pakitan</span>
                 </div>
                 <div class = "customer">
@@ -228,7 +290,7 @@
                     </div>
                     <h3>Comfortable Living</h3>
                     <p>From the warm welcome to the elegant rooms, Saraye exceeded all my expectations.</p>
-                    <img src = "cus2.jpg" alt = "customer image">
+                    <img src = "/images/cus2.jpg" alt = "customer image">
                     <span>Malala bitch, pakistan</span>
                 </div>
             
@@ -242,7 +304,7 @@
                     </div>
                     <h3>Nice Place</h3>
                     <p>Impeccable service and luxurious amenities made my stay at Saraye truly memorable!</p>
-                    <img src = "cus3.jpg" alt = "customer image">
+                    <img src = "/images/cus3.jpg" alt = "customer image">
                     <span>paul, USA</span>
                 </div>
                 
@@ -337,12 +399,14 @@
                     const targetSection = document.getElementById(targetId);
 
                     // Scroll smoothly to the target section
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                //    targetSection.scrollIntoView({ behavior: 'smooth' });
                 });
             });
         });
     </script>
 
-    </form>
+<%--    </form>--%>
+            <script src="path/to/script.js"></script>
+
 </body>
 </html>

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-            <link rel="stylesheet" href="res.css"/>
+            <link rel="stylesheet" href="/styleSheets/res.css"/>
     <script src="JavaScript.js" ></script>
 </head>
 <body>

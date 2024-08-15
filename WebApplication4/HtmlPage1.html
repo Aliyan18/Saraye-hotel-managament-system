@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Feedback</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: url('download.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-size: 17px;
+        }
+
+        h2 {
+            font-family: sans-serif;
+            text-align: center;
+            color: #ff7200;
+            font-size: 25px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            padding: 8px;
+        }
+
+        .container {
+            width: 50%;
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        form {
+            width: 100%;
+            background-color: #000000;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            font-size: 2em;
+            line-height: 1;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+            .star-rating input {
+                display: none;
+            }
+
+            .star-rating label {
+                color: #fff;
+                transition: color 0.3s;
+                margin: 0 5px;
+            }
+
+            .star-rating input:checked ~ label {
+                color: gold;
+            }
+
+            .star-rating label:hover,
+            .star-rating label:hover ~ label {
+                color: #ffd700;
+            }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid;
+            border-radius: 5px;
+        }
+
+        textarea {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ff7200;
+            border-radius: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff7200;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #fff;
+                color: #ff7200;
+            }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <form action="temp" method="POST">
+            <h2>Feedback and Review</h2><br>
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="5" required></textarea>
+
+            <label>Housekeeping Rating:</label>
+            <div class="star-rating">
+                <input type="radio" name="housekeeping_rating" value="1" id="star-1"><label for="star-1">★</label>
+                <input type="radio" name="housekeeping_rating" value="2" id="star-2"><label for="star-2">★</label>
+                <input type="radio" name="housekeeping_rating" value="3" id="star-3"><label for="star-3">★</label>
+                <input type="radio" name="housekeeping_rating" value="4" id="star-4"><label for="star-4">★</label>
+                <input type="radio" name="housekeeping_rating" value="5" id="star-5"><label for="star-5">★</label>
+            </div>
+
+            <label>Staff Rating:</label>
+            <div class="star-rating">
+                <input type="radio" name="staff_rating" value="1" id="staff-star-1"><label for="staff-star-1">★</label>
+                <input type="radio" name="staff_rating" value="2" id="staff-star-2"><label for="staff-star-2">★</label>
+                <input type="radio" name="staff_rating" value="3" id="staff-star-3"><label for="staff-star-3">★</label>
+                <input type="radio" name="staff_rating" value="4" id="staff-star-4"><label for="staff-star-4">★</label>
+                <input type="radio" name="staff_rating" value="5" id="staff-star-5"><label for="staff-star-5">★</label>
+            </div>
+
+            <label>Food Rating:</label>
+            <div class="star-rating">
+                <input type="radio" name="food_rating" value="1" id="food-star-1"><label for="food-star-1">★</label>
+                <input type="radio" name="food_rating" value="2" id="food-star-2"><label for="food-star-2">★</label>
+                <input type="radio" name="food_rating" value="3" id="food-star-3"><label for="food-star-3">★</label>
+                <input type="radio" name="food_rating" value="4" id="food-star-4"><label for="food-star-4">★</label>
+                <input type="radio" name="food_rating" value="5" id="food-star-5"><label for="food-star-5">★</label>
+            </div>
+            <br>
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </div>
+</body>
+
+</html>
